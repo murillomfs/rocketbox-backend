@@ -17,6 +17,11 @@ class BoxController {
 
         return res.json(box);
     }
+
+    async index(req, res) {
+        const boxes = await Box.find({}, '_id title')
+        res.json(boxes)
+    }
 }
 
 module.exports = new BoxController();
